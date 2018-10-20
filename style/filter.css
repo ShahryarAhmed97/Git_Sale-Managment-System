@@ -1,0 +1,48 @@
+body{
+    background-image: url("../images/wood1.jpg");
+  
+}
+
+.error{
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    /* border: 1px solid transparent; */
+    border-radius: 0.25rem;
+    color: #721c24;
+    /* background-color: #f8d7da; */
+    border-color: #f5c6cb;
+}
+
+tr:hover{
+    /* background-color: rgba(13, 96, 99, 0.397); */
+    background-color: blue;
+    transition: all 0.2s;
+    border-bottom: 5px solid rgb(13, 96, 99);
+    cursor: pointer;
+}
+
+.table{
+    border: 2px solid teal;
+    padding: 30px;
+    
+}
+.tab{
+    background-color: rgba(93, 57, 151, 0.452) !important;
+    /* background-color: blue!important; */
+
+}
+.asd{
+    border: 2px solid teal;
+    padding: 30px;
+}
+.bottom{
+    text-align: center !important;
+    color: black;
+    background-color:rgba(13, 96, 99, 0.733);
+    height: 30px;
+    font-size: 20px;
+}
+.line{
+    text-decoration-line: none;
+} 

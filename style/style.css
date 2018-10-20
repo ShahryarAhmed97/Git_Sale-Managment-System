@@ -1,0 +1,55 @@
+body  {
+    background-image: url("../images/wood1.jpg");
+  
+}
+
+.mydiv{
+    color: white;
+    font-size: 1.2em;
+/* background-color: lightblue; */
+width: 400px;
+height: 500px;
+margin-top: 100px;
+margin-left: auto;
+margin-right: auto;
+/* border: 2px solid black; */
+font-family: Georgia, 'Times New Roman', Times, serif;
+/* box-shadow: 0 0 25px #777777; */
+
+}
+a{
+    color: white;
+}
+input[type="submit"]{
+    height: 40px;
+    width: 130px;
+    font-size: 1.2em;
+ border: 0px;
+ border-radius: 5px;
+background-color: red;
+    color:white;
+
+}
+button{
+    height: 40px;
+    width: 130px;
+    font-size: 1.2em;
+ border: 0px;
+ border-radius: 5px;
+background-color:green;
+    color:white;
+
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 1.2em;
+    color: black;
+    font-weight: 100;
+   
+    display: block;
+    border: none;
+    padding: 5px;
+    border: solid 1px black;
+ 
+    font-family: 'Roboto', sans-serif;
+  }
+
