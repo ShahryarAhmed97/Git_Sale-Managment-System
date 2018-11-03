@@ -59,24 +59,23 @@ function adLoginFun()
 }
 
 
-function Product(name, rating, price, brand, orders){
+function Product(des, brnd,prce){
     
-    this.name = name;
-    this.rating = rating;
-    this.price = price;
-    this.brand = brand;
-    this.orders = orders;
+    this.des = des;
+    this.brnd = brnd;
+    this.prce = prce;
+    
 } 
 
 function demoData(){
     var allProducts = [];
     var getProducts = localStorage.getItem("allProducts");
     if(getProducts === null){
-        var product1 = new Product("Samsung S7 Edge", "5", "50000", "Samsung", "60");
-        var product2 = new Product("iPhone 7S Edge", "4.9", "60000", "iPhone", "50");
-        var product3 = new Product("Vivo V11 Pro", "4.1", "53999", "Vivo", "25");
-        var product4 = new Product("Huawei Nova 3i", "4.3", "39999", "Huawei", "40");
-        var product5 = new Product("Oppo F9", "4", "39999", "Oppo", "38");
+        var product1 = new Product("Samsung S7 Edge",  "Samsung", "$60");
+        var product2 = new Product("iPhone 7S Edge",  "iPhone", "$50");
+        var product3 = new Product("Vivo V11 Pro", "Vivo", "$25");
+        var product4 = new Product("Huawei Nova 3i", "Huawei", "$40");
+        var product5 = new Product("Oppo F9", "Oppo", "$38");
         allProducts.push(product1, product2, product3, product4, product5);   
         var storeProducts = localStorage.setItem("allProducts", JSON.stringify(allProducts));
     }
@@ -95,11 +94,10 @@ function addProducts(){
 
             "<tr>"+
             "<th>"+i+"</th>"+
-            "<th>"+ localDataParse[i].name+"</th>"+
-           "<th>"+ localDataParse[i].rating+"</th>"+
-           "<th>"+ localDataParse[i].price+"</th>"+
-           "<th>"+ localDataParse[i].brand+"</th>"+
-           "<th>"+ localDataParse[i].orders+"</th>"+
+            "<th>"+ localDataParse[i].des+"</th>"+
+           "<th>"+ localDataParse[i].brnd+"</th>"+
+           "<th>"+ localDataParse[i].prce+"</th>"+
+          
            "</tr>"
         
         }
@@ -109,11 +107,16 @@ function addProducts(){
       
         
     var sNo=prompt("enter product id");
+    var des=prompt("Enter Description Of Product");
+    var brnd=prompt("Enter Brand Name");
+    var prce=prompt("Enter Price");
+
     var localData=localStorage.getItem("allProducts");
     var localDataParse=JSON.parse(localData);
    
-    
-    var product11 = new Product("S Edge", "5", "50000", "Samsung", "60");
+    var product11 = new Product(des, brnd, prce);
+
+    // var product11 = new Product("S Edge", "5", "50000", "Samsung", "60");
 
 
    
@@ -133,7 +136,7 @@ function addProducts(){
     }
 }
 
-
+ad_reload();
       
 return addProducts();
 
@@ -171,7 +174,7 @@ function delFun(){
 }
 
 
-      
+ad_reload();
 return addProducts();
 
 }
@@ -179,15 +182,18 @@ return addProducts();
 
 function insertFun()
 {
-    var des=prompt();
+    var des=prompt("Enter Description Of Product");
+    var brnd=prompt("Enter Brand Name");
+    var prce=prompt("Enter Price");
+
    
     var getProducts = localStorage.getItem("allProducts");
     var getAllProductsToObj = JSON.parse(getProducts);
-    var product11 = new Product("Samsung S7 Edge", "5", "50000", "Samsung", "60");
+    var product11 = new Product(des, brnd, prce);
      
     getAllProductsToObj.push(product11);
     var storeProducts = localStorage.setItem("allProducts", JSON.stringify(getAllProductsToObj));
-   
+    ad_reload();
     return addProducts();
 }
 
@@ -211,16 +217,15 @@ function ad_reload(){
      var localDataParse=JSON.parse(localData);
      for(var i in localDataParse)
      {
-         if(localDataParse[i].brand.toLowerCase()==sval.toLowerCase()){
+         if(localDataParse[i].brnd.toLowerCase()==sval.toLowerCase()){
              document.getElementById("data-table-1").innerHTML+=
  
              "<tr>"+
              "<th>"+i+"</th>"+
-             "<th>"+ localDataParse[i].name+"</th>"+
-            "<th>"+ localDataParse[i].rating+"</th>"+
-            "<th>"+ localDataParse[i].price+"</th>"+
-            "<th>"+ localDataParse[i].brand+"</th>"+
-            "<th>"+ localDataParse[i].orders+"</th>"+
+             "<th>"+ localDataParse[i].des+"</th>"+
+            "<th>"+ localDataParse[i].brnd+"</th>"+
+            "<th>"+ localDataParse[i].prce+"</th>"+
+           
             "</tr>"
          
          }
