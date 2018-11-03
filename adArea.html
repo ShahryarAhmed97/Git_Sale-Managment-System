@@ -15,33 +15,50 @@
     <link rel="stylesheet" href="./css/filter.css">
     <title>Admin Area</title>
 </head>
-<body class="bg">
+<body class="bg" onload="demoData()">
     <nav class="navbar navbar-light fixed-top" style="background-color:rgb(63, 157, 216)">
+    
+
         <a href="./adLogin.html"><button class="btn btn-success my-2 my-sm-0" type="button" >Log Out</button></a>
         <a class="navbar-brand"><b style="color: black;">Admin Area</b></a>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder=" etc Ferrari" aria-label="Search" id="search" onkeyup="myFun()" onkeydown="reload()">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <!-- <button class="btn btn-success my-2 my-sm-0" type="button" onclick="myFun()">Search</button> -->
-                <button class="btn btn-danger my-2 my-sm-0"  onclick="reload()">Reset</button>
+                <button class="btn btn-danger my-2 my-sm-0"  onclick="ad_reload()">Reset</button>
             </div>
         </form>
     </nav>
+   
+
+
     <br><br><br>
     <div class="container">
     <div class="error" role="alert" id="error"></div>
-<table id="data-table" class="table tab">
+    
+    <div class="insertDiv">
+        
+
+    </div>
+<div>
+    <button class="btn btn-success my-2 my-sm-0" type="button"  onclick="insertFun()">New Product</button>
+    <button class="btn btn-success my-2 my-sm-0" type="button"  onclick="editFun()" style="background-color:blue;">Edit Product</button>
+
+    <button class="btn btn-danger my-2 my-sm-0"  onclick="delFun()">Delete Product</button>
+</div>
+<br><br>
+    <table id="data-table-1" class="table tab">
    <thead class="thead-dark ">
     <tr>
+        <th>S.NO</th>
+      
         <th >NAME</th>
-        <th >SUBBRAND</th>
-        <th >MODEL</th>
-        <th >ENGINE</th>
-        <th >SPEED</th>
-        <th>BODYTYPE</th>
+        <th >RATING</th>
         <th >PRICE</th>
-        <th></th>
-        <th></th>
+        <th >BRAND</th>
+        <th >ORDER</th>
+        
+        <!-- <th></th>
+        <th></th> -->
         
     </tr>
 </thead>

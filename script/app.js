@@ -1,5 +1,6 @@
 
 
+
 function signFun()
 {
    var email= document.getElementById('empEmail').value;
@@ -56,225 +57,190 @@ function adLoginFun()
     ,3000);
 
 }
-//objects
-var modifiedCar = {
-    brands: {
-        Ferrari: {
-                SubBrand: 'f1',
-                model: '2012',
-                engine: '1.2-L 8v',
-                topspeed: '155 km/h (96 mph)',
-                bodyType: ' Fibre',
-                Speed: "155 km/h (96 mph)",
-                Price: '$7.92 Lakh',
-               
-                
 
-            },
-        Suzuki: {
-                SubBrand: 'Swift',
-                model: '2010–present',
-                engine: '1.3 L M13A I4',
-                bodyType: ' Fibre',
-                Speed: "116 mph",
-                Price: 'Rs.1,475,000/-'
-            },
-        Lamborghini: {
-                SubBrand: 'Aventador',
-                model: '2011',
-                engine: '1,731 kg (3,816 lb)',
-                bodyType: ' Fibre',
-                Speed: "349 km/h",
-                Price: '$450,000/-'
-            },
-        Mercerdes: {
-                SubBrand: 'Benz CL-Class',
-                model: '1992–2014 (US)',
-                engine: '1993',
-                bodyType: '2-door coupé',
-                Speed: "250 km/h*",
-                Price: '$216,205'
-            },
-        Porsche: {
-                SubBrand: 'Boxster/Cayman',
-                model: '1997–present',
-                engine: '4.7 L 2UZ-FE V8',
-                bodyType: ' Fibre',
-                Speed: "around 177 mph.",
-                Price: '$67,700'
-            },
-        Toyota:{
-                SubBrand: 'Corolla',
-                model: '2000–present',
-                engine: '3.4 L 5VZ-FE V6',
-                bodyType: ' Fibre',
-                Speed: "230+ Kmph",
-                Price: '$33,030'
-            },
-            GMC :{
-                SubBrand: '2019 GMC Sierra 1500',
-                model: '2019',
-                engine: '285-hp, 4.3-liter V-6 ',
-                bodyType: ' Fibre',
-                Speed: "230+ Kmph",
-                Price: '$53,200'
-            },
-        Bugatti:{
-                SubBrand: 'DIVO',
-                model: '2018',
-                engine: '2018',
-                Speed: "236 MPH",
-                bodyType: 'Carbon Fibre',
-                Price: '€5 million in Europe'
-        },
-        WMotors:{
-            SubBrand: 'The Lykan',
-            model: '2017',
-            engine: 'Type, 228.6 in3, 3746 cc Flat 6',
-            bodyType: 'Coupe Only',
-            Speed: "245 mph",
-            Price: 'US$3.4 million.'
-        },
-        Nissan:{
-            SubBrand: 'GTR - PROTOTYPE',
-            model: '2007',
-            engine: '3.8 L VR38DETT twin-turbo V6',
-            bodyType: '2-door coupé',
-            Speed: "313.8 km/h",
-            Price: '$99,990'
-        },
-        Ford:{
-            SubBrand: 'MUSTANG SUPER-HOUSE 2015',
-            model: '2015',
-            engine: '2.3 L EcoBoost I4',
-            bodyType: '2-door convertible',
-            Speed: "13.9 sec @ 98 mph",
-            Price: '$29,925'
-        },
-        Honda:{
-            SubBrand: 'Civic (tenth generation)',
-            model: '2016—present',
-            engine: '1.0 L P10A2 turbocharged I3',
-            bodyType: '5-door hatchback (FK7/FK4)',
-            Speed: "240 miles in 60 sec",
-            Price: 'US$35,000'
-        },
-        Alfa_Romeo:{
-            SubBrand: '4C Spider',
-            model: '2019',
-            engine: '237-hp, 1.7-liter I-4 (premium)',
-            bodyType: 'Chrome tip exhaust',
-            Speed: "257 km/h",
-            Price: ' $66,900'
-         },
-        Dodge:{
-            SubBrand: 'RAM, CHARGER, VIPER',
-            model: '1999',
-            engine: '1993',
-            bodyType: ' Fibre',
-            Speed: "240 miles in 60 sec",
-            Price: 'N/A'
-        },
-        Acura:{
-            SubBrand: 'RLX Sport Hybrid',
-            model: '2019',
-            engine: '310-hp, 3.5-liter V-6 (premium)',
-            bodyType: 'Chrome bodyside insert',
-            Speed: "130 mph",
-            Price: 'N/A'
-        },
-        Chevrolet:{
-            SubBrand: 'Corvette',
-            model: '2019',
-            engine: '455-hp, 6.2-liter V-8 (premium)',
-            bodyType: 'Black w/chrome accents grille',
-            Speed: "212 MPH",
-            Price: 'N/A'
-        }
+
+function Product(name, rating, price, brand, orders){
+    
+    this.name = name;
+    this.rating = rating;
+    this.price = price;
+    this.brand = brand;
+    this.orders = orders;
+} 
+
+function demoData(){
+    var allProducts = [];
+    var getProducts = localStorage.getItem("allProducts");
+    if(getProducts === null){
+        var product1 = new Product("Samsung S7 Edge", "5", "50000", "Samsung", "60");
+        var product2 = new Product("iPhone 7S Edge", "4.9", "60000", "iPhone", "50");
+        var product3 = new Product("Vivo V11 Pro", "4.1", "53999", "Vivo", "25");
+        var product4 = new Product("Huawei Nova 3i", "4.3", "39999", "Huawei", "40");
+        var product5 = new Product("Oppo F9", "4", "39999", "Oppo", "38");
+        allProducts.push(product1, product2, product3, product4, product5);   
+        var storeProducts = localStorage.setItem("allProducts", JSON.stringify(allProducts));
     }
+    return addProducts();
 }
 
+function addProducts(){
+    
+    var localData=localStorage.getItem("allProducts");
+    var localDataParse=JSON.parse(localData);
+    // console.log(localDataParse);
+    for(var i in localDataParse)
+    {
+      
+            document.getElementById("data-table-1").innerHTML+=
 
-var table = document.getElementById('data-table');      
-for(var key in modifiedCar){
-    for(var key2 in modifiedCar[key]){
-            table.innerHTML += 
-            '<tr>' + '<td>' + key2 + '</td>' + 
-            '<td>' + modifiedCar[key][key2].SubBrand + '</td>'+
-            '<td>' + modifiedCar[key][key2].model + '</td>' +
-            '<td>' + modifiedCar[key][key2].engine + '</td>' +
-            '<td>' + modifiedCar[key][key2].Speed + '</td>'+
-            '<td>' + modifiedCar[key][key2].bodyType + '</td>'  +
-            '<td>' + modifiedCar[key][key2].Price + '</td>'+
-           
-            '<td>' + "<button >"+"EDIT"+"</button>" + '</td>'+
-            '<td>' + "<button onclick='delfun()'>"+"DELETE"+"</button>" + '</td>' 
-            + '</tr>';
-         }
-     }
- 
-
-
-var flag = false;
-var error = document.getElementById('error');
-function myFun(){
-var data = document.getElementById('search').value;
-if(data != " " && data != "" && data != undefined){
-    var table = document.getElementById('data-table');      
-    for(var key in modifiedCar){
-        for(var key2 in modifiedCar[key]){
-            if(data.toLowerCase() === key2.toLowerCase()){
-                    table.innerHTML = "";
-                    table.innerHTML += 
-                    '<tr>' + '<th>'+ 'NAME' + '</th>' 
-                        + '<th>'+ 'SUBNAME' + '</th>'
-                        + '<th>'+ 'MODEL' + '</th>'
-                        + '<th>'+ 'ENGINE' + '</th>'
-                        + '<th>'+ 'SPEED' + '</th>'
-                        + '<th>'+ 'BODYTYPE' + '</th>'
-                        + '<th>'+ 'PRICE' + '</th>' + '</tr>' +
-                        
-
-                    '<tr>' + '<td>' + key2 + '</td>' + 
-                    '<td>' + modifiedCar[key][key2].SubBrand + '</td>'+
-                    '<td>' + modifiedCar[key][key2].model + '</td>' +
-                    '<td>' + modifiedCar[key][key2].engine + '</td>' +
-                    '<td>' + modifiedCar[key][key2].Speed + '</td>'+
-                    '<td>' + modifiedCar[key][key2].bodyType + '</td>'  +
-                    '<td>' + modifiedCar[key][key2].Price + '</td>'+
-                    
-                    '<td>' + "<button>"+"EDIT"+"</button>" + '</td>'+
-                    '<td>' + "<button onclick='delfun()'>"+"DELETE"+"</button>" + '</td>' 
-                    + '</tr>';
-                    flag = true;
-                }
-            }
+            "<tr>"+
+            "<th>"+i+"</th>"+
+            "<th>"+ localDataParse[i].name+"</th>"+
+           "<th>"+ localDataParse[i].rating+"</th>"+
+           "<th>"+ localDataParse[i].price+"</th>"+
+           "<th>"+ localDataParse[i].brand+"</th>"+
+           "<th>"+ localDataParse[i].orders+"</th>"+
+           "</tr>"
+        
         }
     }
-    if(flag === false){
-        error.innerHTML = "Car Data Not Found";
-    }else{
-        error.innerHTML = '';
-    }
-}
-
-function delfun(){
-    var inp=prompt("Plz Rewrite Name to Confirm Delete!!");
-   var tbl= document.getElementById('data-table');
+            
+    function editFun(){
+      
+        
+    var sNo=prompt("enter product id");
+    var localData=localStorage.getItem("allProducts");
+    var localDataParse=JSON.parse(localData);
    
-   console.log(tbl.childElementCount);
+    
+    var product11 = new Product("S Edge", "5", "50000", "Samsung", "60");
+
+
+   
+    for(var i in localDataParse){
+
+    if(i===sNo)
+    {
+
+       
+        console.log(localDataParse[i]);
+        var getProducts = localStorage.getItem("allProducts");
+        var getAllProductsToObj = JSON.parse(getProducts);
+        getAllProductsToObj[i]=product11;
+        var storeProducts = localStorage.setItem("allProducts", JSON.stringify(getAllProductsToObj));
+        
+   
+    }
+}
+
+
+      
+return addProducts();
+
+       
+
+    }
+
+function delFun(){
+
+    var sNo=prompt("enter product id");
+    var localData=localStorage.getItem("allProducts");
+    var localDataParse=JSON.parse(localData);
+    var table=document.getElementById("data-table-1");
+    var tr=table.getElementsByTagName("tr");
+    
+  
+
+   
+    for(var i in localDataParse){
+
+    if(i===sNo)
+    {
+
+        alert("gotcha");
+        console.log(localDataParse[i]);
+        var getProducts = localStorage.getItem("allProducts");
+        var getAllProductsToObj = JSON.parse(getProducts);
+        getAllProductsToObj.splice((Number(i)), 1)
+        var storeProducts = localStorage.setItem("allProducts", JSON.stringify(getAllProductsToObj));
+        
+      console.log(localDataParse[i]);
+    tr[i].innerHTML="";
+        break;
+    }
+}
+
+
+      
+return addProducts();
+
+}
+
+
+function insertFun()
+{
+    var des=prompt();
+   
+    var getProducts = localStorage.getItem("allProducts");
+    var getAllProductsToObj = JSON.parse(getProducts);
+    var product11 = new Product("Samsung S7 Edge", "5", "50000", "Samsung", "60");
+     
+    getAllProductsToObj.push(product11);
+    var storeProducts = localStorage.setItem("allProducts", JSON.stringify(getAllProductsToObj));
+   
+    return addProducts();
+}
+
+
+function ad_reload(){
+
+   
+    window.location.href = './adArea.html'
+ 
+    
+    }
+
     
 
-}
+  function myFun()
+  {
 
-function reload(){
+      document.getElementById("data-table-1").innerHTML="";
+     var sval= document.getElementById("search").value;
+     var localData=localStorage.getItem("allProducts");
+     var localDataParse=JSON.parse(localData);
+     for(var i in localDataParse)
+     {
+         if(localDataParse[i].brand.toLowerCase()==sval.toLowerCase()){
+             document.getElementById("data-table-1").innerHTML+=
+ 
+             "<tr>"+
+             "<th>"+i+"</th>"+
+             "<th>"+ localDataParse[i].name+"</th>"+
+            "<th>"+ localDataParse[i].rating+"</th>"+
+            "<th>"+ localDataParse[i].price+"</th>"+
+            "<th>"+ localDataParse[i].brand+"</th>"+
+            "<th>"+ localDataParse[i].orders+"</th>"+
+            "</tr>"
+         
+         }
+        }
+  }
 
-   
-var reload = document.getElementById('button').innerHTML;
-window.location.href = './index.html'
-reload = window.location.href;
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
