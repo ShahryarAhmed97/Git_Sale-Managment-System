@@ -1,24 +1,75 @@
 body  {
-    background-image: url("../images/wood1.jpg");
+    /* background-image: url("../images/wood1.jpg"); */
+  
   
 }
 
+*:focus{
+    outline: none;
+box-shadow: 0 0 25px #777777;
+}
+
+.email{
+    margin-top: 50px;
+    height: 150;
+    width: 300px;
+    margin-left: auto;
+margin-right: auto;
+}
+.password{
+    height: 150;
+    width: 300px;
+    margin-left: auto;
+margin-right: auto;
+}
+
+.input{
+    height: 150;
+    width: 300px;
+    margin-left: auto;
+margin-right: auto;
+}
+.signInpt{
+    height: 150;
+    width: 300px;
+    margin-left: auto;
+margin-right: auto;
+}
 .mydiv{
-    color: white;
+    
+    padding: 50px;
+    color: black;
     font-size: 1.2em;
-/* background-color: lightblue; */
 width: 400px;
-height: 500px;
-margin-top: 100px;
+height: 350px;
+margin-top: 150px;
 margin-left: auto;
 margin-right: auto;
-/* border: 2px solid black; */
 font-family: Georgia, 'Times New Roman', Times, serif;
-/* box-shadow: 0 0 25px #777777; */
+box-shadow: 0 0 25px #777777;
+
+}
+::placeholder{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(243, 158, 158);
+}
+
+.signDiv{
+    
+    padding: 50px;
+    color: black;
+    font-size: 1.2em;
+width: 400px;
+height: 500px;
+margin-top: 70px;
+margin-left: auto;
+margin-right: auto;
+font-family: Georgia, 'Times New Roman', Times, serif;
+box-shadow: 0 0 25px #777777;
 
 }
 a{
-    color: white;
+    color: red;
 }
 input[type="submit"]{
     height: 40px;
@@ -42,14 +93,23 @@ background-color:green;
 }
 input[type="text"], input[type="email"], input[type="password"] {
     font-size: 1.2em;
-    color: black;
+    color: rgb(194, 19, 19);
     font-weight: 100;
    
     display: block;
     border: none;
     padding: 5px;
-    border: solid 1px black;
- 
+    /* border: solid 1px black; */
+    border-bottom: 2px;
+border-bottom-color: black;
+border-bottom-style: solid;
     font-family: 'Roboto', sans-serif;
   }
+
+
+  input:focus { 
+    /* background-color:rgb(243, 84, 84); */
+  outline-width: none;
+  
+}
 

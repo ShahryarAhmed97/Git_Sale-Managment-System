@@ -4,14 +4,16 @@
 function signFun()
 {
    var email= document.getElementById('empEmail').value;
+   
    var pwd=document.getElementById('empPwd').value;
    console.log(email,pwd)
    
+
    window.localStorage.setItem('empEmail',email);
    window.localStorage.setItem('empPassword',pwd);
    
 
-   setTimeout(function(){  window.location.assign("./empLogin.html") }, 3000);
+   setTimeout(function(){  window.location.assign("./empLogin.html") }, 2000);
   
 
    
@@ -19,7 +21,7 @@ function signFun()
 
 
 function empLoginFun()
-{alert('run')
+{
     var email=window.localStorage.getItem('empEmail');
     var password=window.localStorage.getItem('empPassword');
 
@@ -33,7 +35,7 @@ function empLoginFun()
             }
 
         }
-    ,3000);
+    ,2000);
 
 }
 
@@ -54,7 +56,7 @@ function adLoginFun()
             }
 
         }
-    ,3000);
+    ,2000);
 
 }
 
@@ -86,7 +88,6 @@ function addProducts(){
     
     var localData=localStorage.getItem("allProducts");
     var localDataParse=JSON.parse(localData);
-    // console.log(localDataParse);
     for(var i in localDataParse)
     {
       
@@ -116,7 +117,6 @@ function addProducts(){
    
     var product11 = new Product(des, brnd, prce);
 
-    // var product11 = new Product("S Edge", "5", "50000", "Samsung", "60");
 
 
    
@@ -160,7 +160,6 @@ function delFun(){
     if(i===sNo)
     {
 
-        alert("gotcha");
         console.log(localDataParse[i]);
         var getProducts = localStorage.getItem("allProducts");
         var getAllProductsToObj = JSON.parse(getProducts);
